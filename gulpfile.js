@@ -77,7 +77,7 @@ gulp.task('bowerCSS', function () {
 
 gulp.task('bower', ['bowerJS', 'bowerCSS']);
 
-gulp.task('serve', function() {
+gulp.task('serve', ['jsBuild'],  function() {
   browserSync.init({
     server: {
       baseDir: "./",
@@ -91,7 +91,7 @@ gulp.task('serve', function() {
 
 });
 
-gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
+gulp.task('jsBuild', ['jsBrowserify', 'jshint', 'bower'], function(){
   browserSync.reload();
 });
 
